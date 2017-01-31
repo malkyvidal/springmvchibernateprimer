@@ -30,7 +30,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @SuppressWarnings("unchecked")
     public List<Employee> listEmployee() {
         Session session = sessionFactory.openSession();
-        String hql = "FROM Employee";
+        String hql = "FROM Employee where FIRST_NAME like '%T%'";
         Query query = session.createQuery(hql);
         List<Employee> empList = query.list();
         logger.info("Person List::" + empList);
